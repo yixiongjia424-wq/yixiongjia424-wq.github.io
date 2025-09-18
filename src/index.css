@@ -1,0 +1,19 @@
+/* index.css (Tailwind v4 写法) */
+@import "tailwindcss";
+/* 让 dark: 变体改为“由 .dark class 控制”，而不是系统媒体查询 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+
+  body { @apply bg-white text-neutral-900 antialiased; }
+  html.dark body { @apply bg-neutral-900 text-neutral-100; }
+}
+
+
+/* 你自己的布局工具类保留即可 */
+.site-container { @apply mx-auto max-w-screen-2xl px-4 sm:px-6 xl:px-10; }
+html, body, #root { width: 100%; height: 100%; }
+#root { max-width: unset; margin: 0; padding: 0; }
+
